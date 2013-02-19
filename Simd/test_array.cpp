@@ -25,54 +25,54 @@ int main(int argc, char *argv[])
 {
 	using namespace performance;
 	
-	for (int j = 0; j <= 8; ++j) {
-		int ARRAY_SIZE = 4 * pow (10.f, j);  //original was 10
-		float* m_fArray1 = (float*) malloc_simd(ARRAY_SIZE * sizeof(float));
-		float* m_fArray2 = (float*) malloc_simd(ARRAY_SIZE * sizeof(float));
-		float* m_fArray3 = (float*) malloc_simd(ARRAY_SIZE * sizeof(float));
-	
-		printf("# cycles: %d\n", ARRAY_SIZE);
-		{
-			/* initialize random seed: */
-			srand (time(NULL));
-			for (int i = 0; i < ARRAY_SIZE; ++i)
-			{
-				//original
-				m_fArray1[i] = ((float)rand())/RAND_MAX;
-				m_fArray2[i] = ((float)rand())/RAND_MAX;
-				//m_fArray1[i] = i + 1.f;
-				//m_fArray2[i] = i + 2.f;
-			}
-			uint64_t start = Start();
-			myssefunction(m_fArray1 , m_fArray2 , m_fArray3, ARRAY_SIZE);
-			uint64_t stop = Stop();
-			double time = ExecutionTime(start, stop);
-			printf("Execution time without SIMD = %e \n", time);
-		}
-		
-		{
-			/* initialize random seed: */
-			srand (time(NULL));
-			for (int i = 0; i < ARRAY_SIZE; ++i)
-			{
-				//original
-				m_fArray1[i] = ((float)rand())/RAND_MAX;
-				m_fArray2[i] = ((float)rand())/RAND_MAX;
-				//m_fArray1[i] = i + 1.f;
-				//m_fArray2[i] = i + 2.f;
-			}
-			uint64_t startSimd = Start();
-			myssefunctionSIMD(m_fArray1 , m_fArray2 , m_fArray3, ARRAY_SIZE);
-			uint64_t stopSimd = Stop();
-			double timeSimd = ExecutionTime(startSimd, stopSimd);
-			printf("Execution time with SIMD = %e \n", timeSimd);
-		}
-	
-		free(m_fArray1);
-		free(m_fArray2);
-		free(m_fArray3);
-		
-	}
+//	for (int j = 0; j <= 8; ++j) {
+//		int array_size = 4 * pow (10.f, j);  //original was 10
+//		float* m_fArray1 = (float*) malloc_simd(array_size * sizeof(float));
+//		float* m_fArray2 = (float*) malloc_simd(array_size * sizeof(float));
+//		float* m_fArray3 = (float*) malloc_simd(array_size * sizeof(float));
+//	
+//		printf("# cycles: %d\n", array_size);
+//		{
+//			/* initialize random seed: */
+//			srand (time(NULL));
+//			for (int i = 0; i < array_size; ++i)
+//			{
+//				//original
+//				m_fArray1[i] = ((float)rand())/RAND_MAX;
+//				m_fArray2[i] = ((float)rand())/RAND_MAX;
+//				//m_fArray1[i] = i + 1.f;
+//				//m_fArray2[i] = i + 2.f;
+//			}
+//			uint64_t start = Start();
+//			myssefunction(m_fArray1 , m_fArray2 , m_fArray3, array_size);
+//			uint64_t stop = Stop();
+//			double time = ExecutionTime(start, stop);
+//			printf("Execution time without SIMD = %e \n", time);
+//		}
+//		
+//		{
+//			/* initialize random seed: */
+//			srand (time(NULL));
+//			for (int i = 0; i < array_size; ++i)
+//			{
+//				//original
+//				m_fArray1[i] = ((float)rand())/RAND_MAX;
+//				m_fArray2[i] = ((float)rand())/RAND_MAX;
+//				//m_fArray1[i] = i + 1.f;
+//				//m_fArray2[i] = i + 2.f;
+//			}
+//			uint64_t startSimd = Start();
+//			myssefunctionSIMD(m_fArray1 , m_fArray2 , m_fArray3, array_size);
+//			uint64_t stopSimd = Stop();
+//			double timeSimd = ExecutionTime(startSimd, stopSimd);
+//			printf("Execution time with SIMD = %e \n", timeSimd);
+//		}
+//	
+//		free(m_fArray1);
+//		free(m_fArray2);
+//		free(m_fArray3);
+//		
+//	}
 	
 	return 0;
 }
