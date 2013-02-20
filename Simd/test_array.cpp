@@ -10,7 +10,10 @@
 #include <iomanip>
 #include <ctime>
 #include <stdlib.h>
-#include <xmmintrin.h> // Contain the SSE compiler intrinsics
+//#include <xmmintrin.h> // Contain the SSE compiler intrinsics
+#include <smmintrin.h> //Contain the SSE compiler intrinsics SSE4
+#include <nmmintrin.h> //Contain the SSE compiler intrinsics SSE4
+
 //#include <malloc.h>
 #include "performance.h"
 #include <math.h>
