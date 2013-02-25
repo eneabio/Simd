@@ -16,6 +16,7 @@
 #include "matrix4x4.h"
 #include <math.h>
 #include <time.h>       /* time */
+#include "vec4f.h"
 
 
 using namespace performance;
@@ -158,6 +159,7 @@ int main(int argc, char *argv[])
 			//}
 		}
 
+		
 		
 	}
 	return 0;

@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B553619716DB8E16005FAD5E /* vec4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B553619616DB8E15005FAD5E /* vec4f.cpp */; };
+		B553619B16DBD447005FAD5E /* test_vec4fMultScalar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B553619A16DBD447005FAD5E /* test_vec4fMultScalar.cpp */; };
 		B589A81E16BFE29F0075E043 /* Simd.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B589A81D16BFE29F0075E043 /* Simd.1 */; };
 		B5D7174E16D38CC9007522E2 /* libperformance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D7174D16D38CC9007522E2 /* libperformance.a */; };
 		B5D7175116D3C703007522E2 /* matrix4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5D7175016D3C703007522E2 /* matrix4x4.cpp */; };
-		B5D7175316D3D1B6007522E2 /* test_invert_4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5D7175216D3D1B6007522E2 /* test_invert_4x4.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B553619216DB8924005FAD5E /* test_vec4fsum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_vec4fsum.cpp; sourceTree = "<group>"; };
+		B553619516DB8DDE005FAD5E /* vec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vec4f.h; sourceTree = "<group>"; };
+		B553619616DB8E15005FAD5E /* vec4f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vec4f.cpp; sourceTree = "<group>"; };
+		B553619816DBB67B005FAD5E /* test_vec4fdot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_vec4fdot.cpp; sourceTree = "<group>"; };
+		B553619A16DBD447005FAD5E /* test_vec4fMultScalar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_vec4fMultScalar.cpp; sourceTree = "<group>"; };
 		B589A81816BFE29F0075E043 /* Simd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Simd; sourceTree = BUILT_PRODUCTS_DIR; };
 		B589A81B16BFE29F0075E043 /* test_array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_array.cpp; sourceTree = "<group>"; };
 		B589A81D16BFE29F0075E043 /* Simd.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Simd.1; sourceTree = "<group>"; };
@@ -70,11 +76,16 @@
 			isa = PBXGroup;
 			children = (
 				B5D7174416D38A1F007522E2 /* performance.h */,
-				B589A81B16BFE29F0075E043 /* test_array.cpp */,
-				B589A81D16BFE29F0075E043 /* Simd.1 */,
 				B5D7174F16D3C5C7007522E2 /* matrix4x4.h */,
 				B5D7175016D3C703007522E2 /* matrix4x4.cpp */,
+				B589A81B16BFE29F0075E043 /* test_array.cpp */,
 				B5D7175216D3D1B6007522E2 /* test_invert_4x4.cpp */,
+				B553619216DB8924005FAD5E /* test_vec4fsum.cpp */,
+				B589A81D16BFE29F0075E043 /* Simd.1 */,
+				B553619516DB8DDE005FAD5E /* vec4f.h */,
+				B553619616DB8E15005FAD5E /* vec4f.cpp */,
+				B553619816DBB67B005FAD5E /* test_vec4fdot.cpp */,
+				B553619A16DBD447005FAD5E /* test_vec4fMultScalar.cpp */,
 			);
 			path = Simd;
 			sourceTree = "<group>";
@@ -131,7 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D7175116D3C703007522E2 /* matrix4x4.cpp in Sources */,
-				B5D7175316D3D1B6007522E2 /* test_invert_4x4.cpp in Sources */,
+				B553619716DB8E16005FAD5E /* vec4f.cpp in Sources */,
+				B553619B16DBD447005FAD5E /* test_vec4fMultScalar.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +210,7 @@
 		B589A82216BFE29F0075E043 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_X86_VECTOR_INSTRUCTIONS = sse4.2;
+				CLANG_X86_VECTOR_INSTRUCTIONS = sse4.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Simd\"",
@@ -213,7 +225,7 @@
 		B589A82316BFE29F0075E043 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_X86_VECTOR_INSTRUCTIONS = sse4.2;
+				CLANG_X86_VECTOR_INSTRUCTIONS = sse4.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Simd\"",

@@ -5,7 +5,7 @@
 //#include <xmmintrin.h> // Contain the SSE compiler intrinsics MMX
 
 #include <smmintrin.h> //Contain the SSE compiler intrinsics SSE4
-#include <nmmintrin.h> //Contain the SSE compiler intrinsics SSE4
+//#include <nmmintrin.h> //Contain the SSE compiler intrinsics SSE4
 
 namespace matrix {
 	void InvertGa         (float b[][4], float a[][4]);  //Gaussian elimination
