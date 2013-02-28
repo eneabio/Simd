@@ -32,7 +32,7 @@ struct Vec4f {
 		float y;
 		float z;
 			float w;};
-		__m128 data;
+		__m128 mVec128;
 	};
 	
 };
@@ -47,5 +47,6 @@ void  Vec4fSumSIMD        (const Vec4f&  l, const Vec4f&  r, Vec4f*  outVec);
 void  Vec4fSumSIMDDirect  (const Vec4f&  l, const Vec4f&  r, Vec4f*  outVec);
 void  Vec4fSubSIMD        (const Vec4f&  l, const Vec4f&  r, Vec4f*  outVec);
 F32   Vec4fDotSIMD        (const Vec4f&  l, const Vec4f&  r);
+F32   Vec4fDotSIMDDirect(const Vec4f&  l, const Vec4f&  r);
 F32   Vec4fDotSIMDSSE4(const Vec4f&  l, const Vec4f&  r);
 void  Vec4fMultScalarSIMD(const Vec4f&   inVec4f, const F32 scalar, Vec4f* outVec);

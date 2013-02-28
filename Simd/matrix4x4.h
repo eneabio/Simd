@@ -44,7 +44,6 @@ namespace matrix {
 			__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 			Fac0 = _mm_sub_ps(Mul00, Mul01);
 			
-			bool stop = true;
 		}
 		
 		__m128 Fac1;
@@ -66,7 +65,6 @@ namespace matrix {
 			__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 			Fac1 = _mm_sub_ps(Mul00, Mul01);
 			
-			bool stop = true;
 		}
 		
 		
@@ -89,7 +87,6 @@ namespace matrix {
 			__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 			Fac2 = _mm_sub_ps(Mul00, Mul01);
 			
-			bool stop = true;
 		}
 		
 		__m128 Fac3;
@@ -111,7 +108,6 @@ namespace matrix {
 			__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 			Fac3 = _mm_sub_ps(Mul00, Mul01);
 			
-			bool stop = true;
 		}
 		
 		__m128 Fac4;
@@ -133,7 +129,6 @@ namespace matrix {
 			__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 			Fac4 = _mm_sub_ps(Mul00, Mul01);
 			
-			bool stop = true;
 		}
 		
 		__m128 Fac5;
@@ -155,7 +150,6 @@ namespace matrix {
 			__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 			Fac5 = _mm_sub_ps(Mul00, Mul01);
 			
-			bool stop = true;
 		}
 		
 		__m128 SignA = _mm_set_ps( 1.0f,-1.0f, 1.0f,-1.0f);
