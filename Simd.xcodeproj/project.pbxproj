@@ -1,0 +1,250 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B589A81E16BFE29F0075E043 /* Simd.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B589A81D16BFE29F0075E043 /* Simd.1 */; };
+		B5D7174E16D38CC9007522E2 /* libperformance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D7174D16D38CC9007522E2 /* libperformance.a */; };
+		B5D7175116D3C703007522E2 /* matrix4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5D7175016D3C703007522E2 /* matrix4x4.cpp */; };
+		B5D7175316D3D1B6007522E2 /* test_invert_4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5D7175216D3D1B6007522E2 /* test_invert_4x4.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B589A81616BFE29F0075E043 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				B589A81E16BFE29F0075E043 /* Simd.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B589A81816BFE29F0075E043 /* Simd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Simd; sourceTree = BUILT_PRODUCTS_DIR; };
+		B589A81B16BFE29F0075E043 /* test_array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test_array.cpp; sourceTree = "<group>"; };
+		B589A81D16BFE29F0075E043 /* Simd.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Simd.1; sourceTree = "<group>"; };
+		B5D7174416D38A1F007522E2 /* performance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = performance.h; sourceTree = "<group>"; };
+		B5D7174D16D38CC9007522E2 /* libperformance.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libperformance.a; path = Simd/libperformance.a; sourceTree = "<group>"; };
+		B5D7174F16D3C5C7007522E2 /* matrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix4x4.h; sourceTree = "<group>"; };
+		B5D7175016D3C703007522E2 /* matrix4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix4x4.cpp; sourceTree = "<group>"; };
+		B5D7175216D3D1B6007522E2 /* test_invert_4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_invert_4x4.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B589A81516BFE29F0075E043 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5D7174E16D38CC9007522E2 /* libperformance.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B589A80F16BFE29F0075E043 = {
+			isa = PBXGroup;
+			children = (
+				B5D7174D16D38CC9007522E2 /* libperformance.a */,
+				B589A81A16BFE29F0075E043 /* Simd */,
+				B589A81916BFE29F0075E043 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B589A81916BFE29F0075E043 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B589A81816BFE29F0075E043 /* Simd */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B589A81A16BFE29F0075E043 /* Simd */ = {
+			isa = PBXGroup;
+			children = (
+				B5D7174416D38A1F007522E2 /* performance.h */,
+				B589A81B16BFE29F0075E043 /* test_array.cpp */,
+				B589A81D16BFE29F0075E043 /* Simd.1 */,
+				B5D7174F16D3C5C7007522E2 /* matrix4x4.h */,
+				B5D7175016D3C703007522E2 /* matrix4x4.cpp */,
+				B5D7175216D3D1B6007522E2 /* test_invert_4x4.cpp */,
+			);
+			path = Simd;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B589A81716BFE29F0075E043 /* Simd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B589A82116BFE29F0075E043 /* Build configuration list for PBXNativeTarget "Simd" */;
+			buildPhases = (
+				B589A81416BFE29F0075E043 /* Sources */,
+				B589A81516BFE29F0075E043 /* Frameworks */,
+				B589A81616BFE29F0075E043 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Simd;
+			productName = Simd;
+			productReference = B589A81816BFE29F0075E043 /* Simd */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B589A81016BFE29F0075E043 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "enea ";
+			};
+			buildConfigurationList = B589A81316BFE29F0075E043 /* Build configuration list for PBXProject "Simd" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B589A80F16BFE29F0075E043;
+			productRefGroup = B589A81916BFE29F0075E043 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B589A81716BFE29F0075E043 /* Simd */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B589A81416BFE29F0075E043 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5D7175116D3C703007522E2 /* matrix4x4.cpp in Sources */,
+				B5D7175316D3D1B6007522E2 /* test_invert_4x4.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B589A81F16BFE29F0075E043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B589A82016BFE29F0075E043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B589A82216BFE29F0075E043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Simd\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Desktop\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B589A82316BFE29F0075E043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Simd\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Desktop\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B589A81316BFE29F0075E043 /* Build configuration list for PBXProject "Simd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B589A81F16BFE29F0075E043 /* Debug */,
+				B589A82016BFE29F0075E043 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B589A82116BFE29F0075E043 /* Build configuration list for PBXNativeTarget "Simd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B589A82216BFE29F0075E043 /* Debug */,
+				B589A82316BFE29F0075E043 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B589A81016BFE29F0075E043 /* Project object */;
+}
