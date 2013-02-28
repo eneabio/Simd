@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B553619716DB8E16005FAD5E /* vec4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B553619616DB8E15005FAD5E /* vec4f.cpp */; };
-		B553619B16DBD447005FAD5E /* test_vec4fMultScalar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B553619A16DBD447005FAD5E /* test_vec4fMultScalar.cpp */; };
 		B589A81E16BFE29F0075E043 /* Simd.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B589A81D16BFE29F0075E043 /* Simd.1 */; };
 		B5D7174E16D38CC9007522E2 /* libperformance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D7174D16D38CC9007522E2 /* libperformance.a */; };
 		B5D7175116D3C703007522E2 /* matrix4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5D7175016D3C703007522E2 /* matrix4x4.cpp */; };
+		B5D73C3916DF709A00742E13 /* test_vec4fdot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B553619816DBB67B005FAD5E /* test_vec4fdot.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -143,7 +143,7 @@
 			files = (
 				B5D7175116D3C703007522E2 /* matrix4x4.cpp in Sources */,
 				B553619716DB8E16005FAD5E /* vec4f.cpp in Sources */,
-				B553619B16DBD447005FAD5E /* test_vec4fMultScalar.cpp in Sources */,
+				B5D73C3916DF709A00742E13 /* test_vec4fdot.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

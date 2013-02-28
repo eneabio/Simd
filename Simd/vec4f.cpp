@@ -31,7 +31,7 @@ void Vec4fSumSIMDDirect(const Vec4f&  l, const Vec4f&  r, Vec4f*  outVec) {
 	//store
 	//it it would be better use _mm_store_ps instead of _mm_storeu_ps? but it doesn't work ...
 	//_mm_storeu_ps((float *) outVec[0], somma);
-	outVec->data = _mm_add_ps(l.data,r.data);
+	outVec->mVec128 = _mm_add_ps(l.mVec128,r.mVec128);
 }
 
 void Vec4fSub(const Vec4f&  l, const Vec4f&  r, Vec4f*  outVec) {
@@ -77,15 +77,23 @@ F32 Vec4fDotSIMD(const Vec4f&  l, const Vec4f&  r) {
 	return _mm_cvtss_f32(result);
 }
 
+F32 Vec4fDotSIMDDirect(const Vec4f&  l, const Vec4f&  r) {
+	//dot
+	__m128 m = _mm_mul_ps(l.mVec128, r.mVec128);
+	__m128 t = _mm_add_ps(m, _mm_shuffle_ps(m, m, _MM_SHUFFLE(2, 3, 0, 1)));
+	__m128 result = _mm_add_ps(t, _mm_shuffle_ps(t, t, _MM_SHUFFLE(1, 0, 3, 2)));
+	return _mm_cvtss_f32(result);
+}
+
 F32 Vec4fDotSIMDSSE4(const Vec4f&  l, const Vec4f&  r) {
-	__m128 in[2];
+	//__m128 in[2];
 	//load elements
 	//it would be better using _mm_load_ps instead of _mm_loadu_ps but it doesn't work
-	in[0] = _mm_loadu_ps(l);
-	in[1] = _mm_loadu_ps(r);
+	//in[0] = _mm_loadu_ps(l);
+	//in[1] = _mm_loadu_ps(r);
 #if defined (__SSE4_1__)
 #include <smmintrin.h>
-	__m128 result = _mm_dp_ps(in[0], in[0], 0xF3);
+	__m128 result = _mm_dp_ps(l.mVec128, r.mVec128, 0xF3);
 	return (F32) result[0];
 #endif
 }

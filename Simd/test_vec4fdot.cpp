@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 			elapsed += current;
 		}
 		
-		printf("\nTime in microseconds (TestPerformanceMathVec4fDot without SIMD) = %1.12lf \n",(1000000*elapsed)/count);
+		printf("\nTime in microseconds Vec4fDot without SIMD = %1.12lf \n",(1000000*elapsed)/count);
 		
 		current = 0.0;
 		elapsed = 0.0;
@@ -78,8 +78,8 @@ int main(int argc, char *argv[])
 			
 			l = Vec4f(((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX);
 			r = Vec4f(((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX);
-			l.data = _mm_set_ps(l.x, l.y, l.z, l.w);
-			r.data = _mm_set_ps(r.x, r.y, r.z, r.w);
+			l.mVec128 = _mm_set_ps(l.x, l.y, l.z, l.w);
+			r.mVec128 = _mm_set_ps(r.x, r.y, r.z, r.w);
 			
 			start = Start();
 			
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 			elapsed += current;
 		}
 		
-		printf("\nTime in microseconds (TestPerformanceMathVec4fDotSIMDSSE4)= %1.12lf \n",(1000000*elapsed)/count);
+		printf("\nTime in microseconds Vec4fDotSIMDSSE4= %1.12lf \n",(1000000*elapsed)/count);
 //		
 		current = 0.0;
 		elapsed = 0.0;
@@ -116,7 +116,30 @@ int main(int argc, char *argv[])
 			elapsed += current;
 		}
 		
-		printf("\nTime in microseconds (TestPerformanceMathVec4fDotSIMD)= %1.12lf \n",(1000000*elapsed)/count);
+		printf("\nTime in microseconds Vec4fDotSIMD= %1.12lf \n",(1000000*elapsed)/count);
+		
+		current = 0.0;
+		elapsed = 0.0;
+		for(i=0;i<count;i++){
+			/* initialize random seed: */
+			srand((U32) time(NULL));
+			
+			l = Vec4f(((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX);
+			r = Vec4f(((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX, ((float)rand())/RAND_MAX);
+			
+			start = Start();
+			
+			
+			Vec4fDotSIMDDirect(l, r);
+			
+			stop = Stop();
+			current = ExecutionTime(start,stop);
+			//WriteDebug("Time for iteration: %1.12lf \n",current);
+			
+			elapsed += current;
+		}
+		
+		printf("\nTime in microseconds Vec4fDotSIMDDirect= %1.12lf \n",(1000000*elapsed)/count);
 		
 	}
 	return 0;
