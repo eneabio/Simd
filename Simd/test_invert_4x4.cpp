@@ -15,12 +15,20 @@
 #include "performance.h"
 #include "matrix4x4.h"
 #include <math.h>
-#include <time.h>       /* time */
 #include "vec4f.h"
 
 
 using namespace performance;
 using namespace matrix;
+
+// Integer types
+	#pragma warning (push,0)
+	#include <cstdint>
+	#pragma warning (pop)
+typedef __int32 int32_t;
+typedef unsigned __int32 uint32_t;
+typedef __int64 int64_t;
+typedef unsigned __int64 uint64_t;
 
 int main(int argc, char *argv[])
 {
@@ -88,7 +96,7 @@ int main(int argc, char *argv[])
 		
 		//Invert SIMD MMX
 		{
-			float inMat [16];
+			ATTRIBUTE_ALIGNED16(float) inMat [16];
 			for (int i=0; i < 16; ++i) {
 				inMat[i] = ((float)rand())/RAND_MAX;;
 			}
@@ -102,7 +110,7 @@ int main(int argc, char *argv[])
 			PIII_Inverse_4x4(inMat);
 			uint64_t stop = Stop();
 			double time = ExecutionTime(start, stop);
-			printf("Execution time SIMD (version1) = %e \n", time);
+			printf("Execution time SIMD (version1-MMX) = %e \n", time);
 			//print outMatrix
 			//for (int i=0; i < 16; ++i) {
 			//	printf("# inMat[%d]: %f\n", i, inMat[i]);
@@ -111,7 +119,7 @@ int main(int argc, char *argv[])
 		
 		//Invert SIMD SSE4
 		{
-			float inMat [4][4];
+			ATTRIBUTE_ALIGNED16(float) inMat [4][4];
 			for (int row=0; row < 4; ++row) {
 				for (int column = 0; column < 4; ++column) {
 					if (row == column)
@@ -142,7 +150,7 @@ int main(int argc, char *argv[])
 			_mm_inverse_ps(in, out);
 			uint64_t stop = Stop();
 			double time = ExecutionTime(start, stop);
-			printf("Execution time SIMD (version2) = %e \n", time);
+			printf("Execution time SIMD (version2 - SSE4) = %e \n", time);
 			
 			//store elements
 			float outMat[4][4];

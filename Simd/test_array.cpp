@@ -18,64 +18,85 @@
 #include "performance.h"
 #include <math.h>
 #include <time.h>       /* time */
+#include <windows.h>
 
 void myssefunctionSIMD ( float* pArray1, float* pArray2, float* pResult, int nSize);
 void myssefunction     ( float* pArray1, float* pArray2, float* pResult, int nSize);
 void * malloc_simd     (const size_t size);
-void * free_simd       (void * p);
+void  free_simd       (void * p);
 
 int main(int argc, char *argv[])
 {
 	using namespace performance;
 	
-//	for (int j = 0; j <= 8; ++j) {
-//		int array_size = 4 * pow (10.f, j);  //original was 10
-//		float* m_fArray1 = (float*) malloc_simd(array_size * sizeof(float));
-//		float* m_fArray2 = (float*) malloc_simd(array_size * sizeof(float));
-//		float* m_fArray3 = (float*) malloc_simd(array_size * sizeof(float));
-//	
-//		printf("# cycles: %d\n", array_size);
-//		{
-//			/* initialize random seed: */
-//			srand (time(NULL));
-//			for (int i = 0; i < array_size; ++i)
-//			{
-//				//original
-//				m_fArray1[i] = ((float)rand())/RAND_MAX;
-//				m_fArray2[i] = ((float)rand())/RAND_MAX;
-//				//m_fArray1[i] = i + 1.f;
-//				//m_fArray2[i] = i + 2.f;
-//			}
-//			uint64_t start = Start();
-//			myssefunction(m_fArray1 , m_fArray2 , m_fArray3, array_size);
-//			uint64_t stop = Stop();
-//			double time = ExecutionTime(start, stop);
-//			printf("Execution time without SIMD = %e \n", time);
-//		}
-//		
-//		{
-//			/* initialize random seed: */
-//			srand (time(NULL));
-//			for (int i = 0; i < array_size; ++i)
-//			{
-//				//original
-//				m_fArray1[i] = ((float)rand())/RAND_MAX;
-//				m_fArray2[i] = ((float)rand())/RAND_MAX;
-//				//m_fArray1[i] = i + 1.f;
-//				//m_fArray2[i] = i + 2.f;
-//			}
-//			uint64_t startSimd = Start();
-//			myssefunctionSIMD(m_fArray1 , m_fArray2 , m_fArray3, array_size);
-//			uint64_t stopSimd = Stop();
-//			double timeSimd = ExecutionTime(startSimd, stopSimd);
-//			printf("Execution time with SIMD = %e \n", timeSimd);
-//		}
-//	
-//		free(m_fArray1);
-//		free(m_fArray2);
-//		free(m_fArray3);
-//		
-//	}
+	for (int j = 0; j <= 6; ++j) {
+		int array_size = 4 * pow (10.f, j);  //original was 10
+		float* m_fArray1 = (float*) malloc_simd(array_size * sizeof(float));
+		float* m_fArray2 = (float*) malloc_simd(array_size * sizeof(float));
+		float* m_fArray3 = (float*) malloc_simd(array_size * sizeof(float));
+	
+		printf("# cycles: %d\n", array_size);
+		{
+			/* initialize random seed: */
+			srand (time(NULL));
+			for (int i = 0; i < array_size; ++i)
+			{
+				//original
+				m_fArray1[i] = ((float)rand())/RAND_MAX;
+				m_fArray2[i] = ((float)rand())/RAND_MAX;
+				m_fArray1[i] = i + 1.f;
+				m_fArray2[i] = i + 2.f;
+			}
+			Clock start = Start();
+			myssefunction(m_fArray1 , m_fArray2 , m_fArray3, array_size);
+			Clock stop = Stop();
+			double time = ExecutionTime(start, stop);
+			//printf("Execution time without SIMD = %e \n", time);
+			printf("\nTime in microseconds Execution time without SIMD= %1.12lf \n",1000000*time);
+		}
+		
+		{
+			/* initialize random seed: */
+			srand (time(NULL));
+			for (int i = 0; i < array_size; ++i)
+			{
+				//original
+				m_fArray1[i] = ((float)rand())/RAND_MAX;
+				m_fArray2[i] = ((float)rand())/RAND_MAX;
+				m_fArray1[i] = i + 1.f;
+				m_fArray2[i] = i + 2.f;
+			}
+			Clock startSimd = Start();
+			myssefunctionSIMD(m_fArray1 , m_fArray2 , m_fArray3, array_size);
+			Clock stopSimd = Stop();
+			double timeSimd = ExecutionTime(startSimd, stopSimd);
+			printf("\nTime in microseconds Execution time with SIMD= %1.12lf \n",1000000*timeSimd);
+		}
+	
+		{
+			/* initialize random seed: */
+			srand (time(NULL));
+			for (int i = 0; i < array_size; ++i)
+			{
+				//original
+				m_fArray1[i] = ((float)rand())/RAND_MAX;
+				m_fArray2[i] = ((float)rand())/RAND_MAX;
+				m_fArray1[i] = i + 1.f;
+				m_fArray2[i] = i + 2.f;
+			}
+			int a=0;
+			Clock startExample = Start();
+			Sleep(1000);
+			Clock stopExample = Stop();
+			double timeExample = ExecutionTime(startExample, stopExample);
+			printf("\n Time in microseconds Execution time: Sleep(1000) (1000 milliseconds)= %e \n",1000000 * timeExample);
+		}
+
+		free_simd(m_fArray1);
+		free_simd(m_fArray2);
+		free_simd(m_fArray3);
+		
+	}
 	
 	return 0;
 }
@@ -93,10 +114,11 @@ void * malloc_simd(const size_t size)
 #endif
 }
 
-void * free_simd(void * p)
+void  free_simd(void * p)
 {
 #if defined WIN32           // WIN32
 	_aligned_free(p);
+	return;
 #elif defined __linux__     // Linux
 	free(p);
 #elif defined __MACH__      // Mac OS X

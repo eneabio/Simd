@@ -293,8 +293,7 @@ namespace matrix {
 	{
 		__m128 minor0, minor1, minor2, minor3;
 		__m128 row0,   row1,   row2,   row3;
-		__m128 det,    tmp1;
-		tmp1 = _mm_loadh_pi(_mm_loadl_pi(tmp1, (__m64*)(src)), (__m64*)(src+ 4));
+		__m128 tmp1 = _mm_loadh_pi(_mm_loadl_pi(tmp1, (__m64*)(src)), (__m64*)(src+ 4));
 		row1 = _mm_loadh_pi(_mm_loadl_pi(row1, (__m64*)(src+8)), (__m64*)(src+12));
 		row0 = _mm_shuffle_ps(tmp1, row1, 0x88);
 		row1 = _mm_shuffle_ps(row1, tmp1, 0xDD);
@@ -355,7 +354,7 @@ namespace matrix {
 		minor1 = _mm_sub_ps(minor1, _mm_mul_ps(row3, tmp1));
 		minor3 = _mm_add_ps(_mm_mul_ps(row1, tmp1), minor3);
 		// -----------------------------------------------
-		det = _mm_mul_ps(row0, minor0);
+		__m128 det = _mm_mul_ps(row0, minor0);
 		det = _mm_add_ps(_mm_shuffle_ps(det, det, 0x4E), det);
 		det = _mm_add_ss(_mm_shuffle_ps(det, det, 0xB1), det);
 		tmp1 = _mm_rcp_ss(det);
