@@ -15,9 +15,16 @@
 #include "performance.h"
 #include "matrix4x4.h"
 #include <math.h>
-#include <time.h>       /* time */
 #include "vec4f.h"
 
+// Integer types
+	#pragma warning (push,0)
+	#include <cstdint>
+	#pragma warning (pop)
+typedef __int32 int32_t;
+typedef unsigned __int32 uint32_t;
+typedef __int64 int64_t;
+typedef unsigned __int64 uint64_t;
 
 using namespace performance;
 using namespace matrix;
@@ -32,6 +39,10 @@ typedef int16_t  I16;
 typedef int32_t  I32;
 typedef int64_t  I64;
 
+//typedef short    F16;
+typedef float    F32;
+typedef double   F64;
+
 int main(int argc, char *argv[])
 {
 	int cycles = 10;
@@ -43,8 +54,8 @@ int main(int argc, char *argv[])
 		Vec4f r;
 		Vec4f result;
 		
-		U64 start;
-		U64 stop;
+		Clock start;
+		Clock stop;
 		F64 current = 0.0;
 		F64 elapsed = 0.0;
 		I32 i;

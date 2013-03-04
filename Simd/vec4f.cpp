@@ -94,8 +94,16 @@ F32 Vec4fDotSIMDSSE4(const Vec4f&  l, const Vec4f&  r) {
 #if defined (__SSE4_1__)
 #include <smmintrin.h>
 	__m128 result = _mm_dp_ps(l.mVec128, r.mVec128, 0xF3);
-	return (F32) result[0];
+	return _mm_cvtss_f32(result);
+
+#elif defined (_M_IX86_FP )  //The _M_IX86_FP macro indicates which, if any, /arch compiler option was used, 2 if /arch:SSE2 was used
+#include <smmintrin.h>
+	__m128 result = _mm_dp_ps(l.mVec128, r.mVec128, 0xF3);
+	return _mm_cvtss_f32(result);
+#else 
+	return -1;
 #endif
+
 }
 
 void Vec4fMultScalar(const Vec4f&   inVec4f, const F32 scalar, Vec4f* outVec){
